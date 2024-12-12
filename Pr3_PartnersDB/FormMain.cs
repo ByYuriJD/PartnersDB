@@ -36,6 +36,9 @@ namespace Pr3_PartnersDB {
 			if (this.db != null) {
 				var partner = (Partner)this.dataGridViewPartners.CurrentRow.DataBoundItem;
 
+				FormEditPartner formEditPartner = new FormEditPartner(partner.Id);
+				formEditPartner.Show();
+
 				if (partner != null) {
 					this.db.Entry(partner).Collection(e => e.PartnersProducts).Load();
 					this.dataGridViewPartnersProducts.DataSource = partner.PartnersProducts;
