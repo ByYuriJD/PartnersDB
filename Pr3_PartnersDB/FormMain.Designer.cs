@@ -24,105 +24,107 @@
 		/// </summary>
 		private void InitializeComponent() {
 			panelBottom = new Panel();
+			dataGridViewProductTypes = new DataGridView();
 			panelFill = new Panel();
-			dataGridView1 = new DataGridView();
-			dataGridView2 = new DataGridView();
-			dataGridView3 = new DataGridView();
-			dataGridView4 = new DataGridView();
-			dataGridView5 = new DataGridView();
+			dataGridViewPartnersProducts = new DataGridView();
+			dataGridViewProducts = new DataGridView();
+			dataGridViewPartners = new DataGridView();
+			dataGridViewPartnerTypes = new DataGridView();
 			panelBottom.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)dataGridViewProductTypes).BeginInit();
 			panelFill.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-			((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
-			((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
-			((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
-			((System.ComponentModel.ISupportInitialize)dataGridView5).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dataGridViewPartnersProducts).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dataGridViewPartners).BeginInit();
+			((System.ComponentModel.ISupportInitialize)dataGridViewPartnerTypes).BeginInit();
 			SuspendLayout();
 			// 
 			// panelBottom
 			// 
-			panelBottom.Controls.Add(dataGridView5);
-			panelBottom.Controls.Add(dataGridView4);
+			panelBottom.Controls.Add(dataGridViewProductTypes);
+			panelBottom.Controls.Add(dataGridViewPartnerTypes);
 			panelBottom.Dock = DockStyle.Bottom;
-			panelBottom.Location = new Point(0, 350);
+			panelBottom.Location = new Point(0, 361);
 			panelBottom.Name = "panelBottom";
 			panelBottom.Padding = new Padding(10);
-			panelBottom.Size = new Size(800, 100);
+			panelBottom.Size = new Size(984, 100);
 			panelBottom.TabIndex = 0;
+			// 
+			// dataGridViewProductTypes
+			// 
+			dataGridViewProductTypes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewProductTypes.Dock = DockStyle.Fill;
+			dataGridViewProductTypes.Location = new Point(473, 10);
+			dataGridViewProductTypes.Name = "dataGridViewProductTypes";
+			dataGridViewProductTypes.Size = new Size(501, 80);
+			dataGridViewProductTypes.TabIndex = 1;
 			// 
 			// panelFill
 			// 
-			panelFill.Controls.Add(dataGridView3);
-			panelFill.Controls.Add(dataGridView2);
-			panelFill.Controls.Add(dataGridView1);
+			panelFill.Controls.Add(dataGridViewPartnersProducts);
+			panelFill.Controls.Add(dataGridViewProducts);
+			panelFill.Controls.Add(dataGridViewPartners);
 			panelFill.Dock = DockStyle.Fill;
 			panelFill.Location = new Point(0, 0);
 			panelFill.Name = "panelFill";
 			panelFill.Padding = new Padding(10);
-			panelFill.Size = new Size(800, 350);
+			panelFill.Size = new Size(984, 361);
 			panelFill.TabIndex = 1;
 			// 
-			// dataGridView1
+			// dataGridViewPartnersProducts
 			// 
-			dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView1.Dock = DockStyle.Left;
-			dataGridView1.Location = new Point(10, 10);
-			dataGridView1.Name = "dataGridView1";
-			dataGridView1.Size = new Size(278, 330);
-			dataGridView1.TabIndex = 0;
+			dataGridViewPartnersProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewPartnersProducts.Dock = DockStyle.Fill;
+			dataGridViewPartnersProducts.Location = new Point(341, 10);
+			dataGridViewPartnersProducts.Name = "dataGridViewPartnersProducts";
+			dataGridViewPartnersProducts.Size = new Size(295, 341);
+			dataGridViewPartnersProducts.TabIndex = 2;
 			// 
-			// dataGridView2
+			// dataGridViewProducts
 			// 
-			dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView2.Dock = DockStyle.Right;
-			dataGridView2.Location = new Point(513, 10);
-			dataGridView2.Name = "dataGridView2";
-			dataGridView2.Size = new Size(277, 330);
-			dataGridView2.TabIndex = 1;
+			dataGridViewProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewProducts.Dock = DockStyle.Right;
+			dataGridViewProducts.Location = new Point(636, 10);
+			dataGridViewProducts.Name = "dataGridViewProducts";
+			dataGridViewProducts.Size = new Size(338, 341);
+			dataGridViewProducts.TabIndex = 1;
+			dataGridViewProducts.SelectionChanged += dataGridViewProducts_SelectionChanged;
 			// 
-			// dataGridView3
+			// dataGridViewPartners
 			// 
-			dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView3.Dock = DockStyle.Fill;
-			dataGridView3.Location = new Point(288, 10);
-			dataGridView3.Name = "dataGridView3";
-			dataGridView3.Size = new Size(225, 330);
-			dataGridView3.TabIndex = 2;
+			dataGridViewPartners.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewPartners.Dock = DockStyle.Left;
+			dataGridViewPartners.Location = new Point(10, 10);
+			dataGridViewPartners.Name = "dataGridViewPartners";
+			dataGridViewPartners.Size = new Size(331, 341);
+			dataGridViewPartners.TabIndex = 0;
+			dataGridViewPartners.SelectionChanged += dataGridViewPartners_SelectionChanged;
 			// 
-			// dataGridView4
+			// dataGridViewPartnerTypes
 			// 
-			dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView4.Dock = DockStyle.Left;
-			dataGridView4.Location = new Point(10, 10);
-			dataGridView4.Name = "dataGridView4";
-			dataGridView4.Size = new Size(400, 80);
-			dataGridView4.TabIndex = 0;
-			// 
-			// dataGridView5
-			// 
-			dataGridView5.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridView5.Dock = DockStyle.Fill;
-			dataGridView5.Location = new Point(410, 10);
-			dataGridView5.Name = "dataGridView5";
-			dataGridView5.Size = new Size(380, 80);
-			dataGridView5.TabIndex = 1;
+			dataGridViewPartnerTypes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewPartnerTypes.Dock = DockStyle.Left;
+			dataGridViewPartnerTypes.Location = new Point(10, 10);
+			dataGridViewPartnerTypes.Name = "dataGridViewPartnerTypes";
+			dataGridViewPartnerTypes.Size = new Size(463, 80);
+			dataGridViewPartnerTypes.TabIndex = 0;
 			// 
 			// FormMain
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(800, 450);
+			ClientSize = new Size(984, 461);
 			Controls.Add(panelFill);
 			Controls.Add(panelBottom);
 			Name = "FormMain";
 			Text = "Партнёры";
 			panelBottom.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)dataGridViewProductTypes).EndInit();
 			panelFill.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-			((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
-			((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
-			((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
-			((System.ComponentModel.ISupportInitialize)dataGridView5).EndInit();
+			((System.ComponentModel.ISupportInitialize)dataGridViewPartnersProducts).EndInit();
+			((System.ComponentModel.ISupportInitialize)dataGridViewProducts).EndInit();
+			((System.ComponentModel.ISupportInitialize)dataGridViewPartners).EndInit();
+			((System.ComponentModel.ISupportInitialize)dataGridViewPartnerTypes).EndInit();
 			ResumeLayout(false);
 		}
 
@@ -130,10 +132,10 @@
 
 		private Panel panelBottom;
 		private Panel panelFill;
-		private DataGridView dataGridView5;
-		private DataGridView dataGridView4;
-		private DataGridView dataGridView3;
-		private DataGridView dataGridView2;
-		private DataGridView dataGridView1;
+		private DataGridView dataGridViewProductTypes;
+		private DataGridView dataGridViewPartnersProducts;
+		private DataGridView dataGridViewProducts;
+		private DataGridView dataGridViewPartners;
+		private DataGridView dataGridViewPartnerTypes;
 	}
 }
