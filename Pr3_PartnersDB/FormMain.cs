@@ -8,21 +8,16 @@ namespace PartnersDB {
 		private PartnersContext? db;
 		public FormMain() {
 			InitializeComponent();
-
 		}
 		protected override void OnLoad(EventArgs e) {
 			base.OnLoad(e);
 			this.db = new PartnersContext();
+			this.db.Partners.Load();
+			this.db.PartnerTypes.Load();
+			this.db.PartnersProducts.Load();
 
-			// Загрузка из БД
-			//this.db.Partners.Load();
-			//this.db.Products.Load();
-			//this.db.PartnerTypes.Load();
-			//this.db.ProductTypes.Load();
-			//this.dataGridViewPartners.DataSource = this.db.Partners.Local.ToBindingList();
-			//this.dataGridViewProducts.DataSource = this.db.Products.Local.ToBindingList();
-			//this.dataGridViewPartnerTypes.DataSource = this.db.PartnerTypes.Local.ToBindingList();
-			//this.dataGridViewProductTypes.DataSource = this.db.ProductTypes.Local.ToBindingList();
+			UpdatePanel(new Point(Top));
+
 		}
 
 		protected override void OnClosing(CancelEventArgs e) {
@@ -31,26 +26,51 @@ namespace PartnersDB {
 			this.db?.Dispose();
 			this.db = null;
 		}
+		public void DeleteEntity(int id) {
+			db.Partners.Where(e=>e.Id==id).ExecuteDeleteAsync();
+			db.SaveChanges();
+		}
+		protected void UpdatePanel(Point position) {
+			FlowPanel.Controls.Clear();
 
-		//private void dataGridViewPartners_SelectionChanged(object sender, EventArgs e) {
-		//	if (this.db != null) {
-		//		var partner = (Partner)this.dataGridViewPartners.CurrentRow.DataBoundItem;
 
-		//		if (partner != null) {
-		//			this.db.Entry(partner).Collection(e => e.PartnersProducts).Load();
-		//			this.dataGridViewPartnersProducts.DataSource = partner.PartnersProducts;
-		//		}
-		//	}
-		//}
-		//private void dataGridViewProducts_SelectionChanged(object sender, EventArgs e) {
-		//	if (this.db != null) {
-		//		var product = (Product)this.dataGridViewProducts.CurrentRow.DataBoundItem;
+			List<String> partnerTypes = new List<String>();
+			foreach (PartnerType partnerType in this.db.PartnerTypes) {
+				partnerTypes.Add(partnerType.TypeOfPartner);
+			}
+			foreach (Partner partner in this.db.Partners) {
+				partnerPanel partnerPanel = new partnerPanel(partner, partnerTypes.ToArray(), this);
+				FlowPanel.Controls.Add(partnerPanel);
+			}
 
-		//		if (product != null) {
-		//			this.db.Entry(product).Collection(e => e.PartnersProducts).Load();
-		//			this.dataGridViewPartnersProducts.DataSource = product.PartnersProducts;
-		//		}
-		//	}
-		//}
+			Button buttonNew = new Button();
+			buttonNew.Text = "Добавить партнёра";
+			buttonNew.Click += ButtonNew_Click;
+			buttonNew.Dock = DockStyle.Bottom;
+			buttonNew.Height = 40;
+			FlowPanel.Controls.Add(buttonNew);
+
+			FlowPanel.Height = FlowPanel.Height + 30;
+			FlowPanel.AutoScrollPosition = position;
+		}
+
+		private void ButtonNew_Click(object sender, EventArgs e) {
+			if (db != null) {
+				db.Partners.Add(new Partner {
+					NameOfPartner = "Новый партнёр",
+					LegalAdress = "Адрес",
+					Inn = "ИНН",
+					FullNameOfCeo = "ФИО директора",
+					PhoneNumber = "Телефон",
+					Email = "Почта",
+					IdPartnerType = 0,
+					IdPartnerTypeNavigation = db.PartnerTypes.First(),
+					Rating = 0,
+				});
+				db.SaveChanges();
+
+				UpdatePanel(FlowPanel.AutoScrollPosition);
+			}
+		}
 	}
 }

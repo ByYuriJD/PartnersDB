@@ -14,10 +14,13 @@ namespace PartnersDB {
 		private Partner partner;
 		private String[] partnerTypes;
 		private int totalSales;
-		public partnerPanel(Partner partner, String[] partnerTypes, int totalSales) {
+		private FormMain formMain;
+		public partnerPanel(Partner partner, String[] partnerTypes,FormMain formMain) {
 			this.partner = partner;
 			this.partnerTypes = partnerTypes;
 			this.totalSales = totalSales;
+			this.formMain = formMain;
+
 			InitializeComponent();
 		}
 
@@ -26,6 +29,11 @@ namespace PartnersDB {
 			labelNameType.Text = partnerTypes[partner.IdPartnerType] + " | " + partner.NameOfPartner;
 			labelPhone.Text = partner.PhoneNumber;
 			labelRating.Text = "Рейтинг: " + partner.Rating;
+
+			foreach (PartnersProduct partnersProduct in partner.PartnersProducts) {
+				totalSales += partnersProduct.Amount;
+			}
+
 
 			if (totalSales < 10000) {
 				labelCut.Text = "0%";
@@ -40,7 +48,7 @@ namespace PartnersDB {
 
 		private void buttonEdit_Click(object sender, EventArgs e) {
 			this.Enabled = false;
-			FormEditPartner formEditPartner = new FormEditPartner(partner.Id);
+			FormEditPartner formEditPartner = new FormEditPartner(partner.Id,this);
 			formEditPartner.Show();
 		}
 		private void buttonDelete_Click(object sender, EventArgs e) {
@@ -49,6 +57,7 @@ namespace PartnersDB {
 			this.Enabled = false;
 		}
 		public void deleteEntry() {
+			formMain.DeleteEntity(partner.Id);
 			Dispose();
 		}
 	}

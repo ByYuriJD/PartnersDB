@@ -15,8 +15,7 @@ namespace PartnersDB {
 			this.partnerPanel = partnerPanel;
 			InitializeComponent();
 		}
-		private void ConfirmDelete_Load(object sender, EventArgs e) {
-		}
+		private void ConfirmDelete_Load(object sender, EventArgs e) {}
 		private void buttonNo_Click(object sender, EventArgs e) {
 			Close();
 		}

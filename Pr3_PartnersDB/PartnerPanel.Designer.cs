@@ -46,7 +46,7 @@
 			panel1.Location = new Point(10, 10);
 			panel1.Name = "panel1";
 			panel1.Padding = new Padding(10);
-			panel1.Size = new Size(338, 122);
+			panel1.Size = new Size(338, 120);
 			panel1.TabIndex = 0;
 			// 
 			// labelRating
@@ -96,10 +96,10 @@
 			panel2.Controls.Add(buttonEdit);
 			panel2.Controls.Add(labelCut);
 			panel2.Dock = DockStyle.Right;
-			panel2.Location = new Point(354, 10);
+			panel2.Location = new Point(369, 10);
 			panel2.Name = "panel2";
 			panel2.Padding = new Padding(10);
-			panel2.Size = new Size(171, 122);
+			panel2.Size = new Size(171, 120);
 			panel2.TabIndex = 1;
 			// 
 			// buttonDelete
@@ -108,20 +108,20 @@
 			buttonDelete.Dock = DockStyle.Bottom;
 			buttonDelete.Font = new Font("Segoe UI", 12F);
 			buttonDelete.ForeColor = SystemColors.Control;
-			buttonDelete.Location = new Point(10, 41);
+			buttonDelete.Location = new Point(10, 39);
 			buttonDelete.Name = "buttonDelete";
 			buttonDelete.Size = new Size(151, 29);
 			buttonDelete.TabIndex = 2;
 			buttonDelete.Text = "Удалить";
 			buttonDelete.UseVisualStyleBackColor = false;
-			buttonDelete.Click += this.buttonDelete_Click;
+			buttonDelete.Click += buttonDelete_Click;
 			// 
 			// buttonEdit
 			// 
 			buttonEdit.Dock = DockStyle.Bottom;
 			buttonEdit.Font = new Font("Segoe UI", 12F);
 			buttonEdit.ForeColor = SystemColors.ControlText;
-			buttonEdit.Location = new Point(10, 70);
+			buttonEdit.Location = new Point(10, 68);
 			buttonEdit.Name = "buttonEdit";
 			buttonEdit.Size = new Size(151, 42);
 			buttonEdit.TabIndex = 1;
@@ -144,11 +144,12 @@
 			// 
 			AutoScaleDimensions = new SizeF(7F, 15F);
 			AutoScaleMode = AutoScaleMode.Font;
+			BorderStyle = BorderStyle.FixedSingle;
 			Controls.Add(panel2);
 			Controls.Add(panel1);
 			Name = "partnerPanel";
 			Padding = new Padding(10);
-			Size = new Size(535, 142);
+			Size = new Size(550, 140);
 			Load += UserControl1_Load;
 			panel1.ResumeLayout(false);
 			panel2.ResumeLayout(false);
