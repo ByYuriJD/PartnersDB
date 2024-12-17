@@ -8,18 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
-using Pr3_PartnersDB.Models;
+using PartnersDB.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace Pr3_PartnersDB {
+namespace PartnersDB {
 	public partial class FormEditPartner : Form {
 		public int id;
 		private PartnersContext? db;
+		private partnerPanel partnerPanel;
 
 
-		public FormEditPartner(int id) {
+		public FormEditPartner(int id, partnerPanel partnerPanel = null) {
 			this.id = id;
-
+			this.partnerPanel = partnerPanel;
 			InitializeComponent();
 		}
 		protected override void OnLoad(EventArgs e) {
@@ -40,6 +41,9 @@ namespace Pr3_PartnersDB {
 
 			this.db?.Dispose();
 			this.db = null;
+			if (partnerPanel != null) {
+				partnerPanel.Enabled = true;
+			}
 		}
 
 		private void buttonSave_Click(object sender, EventArgs e) {
@@ -51,7 +55,9 @@ namespace Pr3_PartnersDB {
 
 		private void buttonDelete_Click(object sender, EventArgs e) {
 			foreach (DataGridViewRow row in dataGridViewPartnerTypes.SelectedRows) {
-				dataGridViewPartnerTypes.Rows.RemoveAt(row.Index);
+				if (dataGridViewPartnerTypes.Rows.Count - 1 > row.Index){ 
+					dataGridViewPartnerTypes.Rows.RemoveAt(row.Index);
+				}
 			}
 		}
 	}

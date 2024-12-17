@@ -1,4 +1,4 @@
-﻿namespace Pr3_PartnersDB {
+﻿namespace PartnersDB {
 	partial class FormEditPartner {
 		/// <summary>
 		/// Required designer variable.

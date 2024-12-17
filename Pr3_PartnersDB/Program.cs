@@ -1,4 +1,4 @@
-namespace Pr3_PartnersDB {
+namespace PartnersDB {
 	internal static class Program {
 		/// <summary>
 		///  The main entry point for the application.

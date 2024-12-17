@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Pr3_PartnersDB.Models;
+namespace PartnersDB.Models;
 
 public partial class ProductType
 {
