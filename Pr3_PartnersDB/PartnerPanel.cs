@@ -12,10 +12,10 @@ using PartnersDB.Models;
 namespace PartnersDB {
 	public partial class partnerPanel : UserControl {
 		private Partner partner;
-		private String[] partnerTypes;
+		private Dictionary<int, String> partnerTypes;
 		private int totalSales;
 		private FormMain formMain;
-		public partnerPanel(Partner partner, String[] partnerTypes,FormMain formMain) {
+		public partnerPanel(Partner partner, Dictionary<int,String> partnerTypes,FormMain formMain) {
 			this.partner = partner;
 			this.partnerTypes = partnerTypes;
 			this.totalSales = totalSales;

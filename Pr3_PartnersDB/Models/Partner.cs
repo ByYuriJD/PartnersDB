@@ -3,8 +3,22 @@ using System.Collections.Generic;
 
 namespace PartnersDB.Models;
 
-public partial class Partner
-{
+public partial class Partner { 
+    public Partner() { }
+    public Partner(Partner partner) {
+        this.Id = partner.Id;
+        this.PartnersProducts = partner.PartnersProducts;
+        this.NameOfPartner = partner.NameOfPartner;
+        this.Inn = partner.Inn;
+        this.FullNameOfCeo = partner.FullNameOfCeo;
+        this.LegalAdress = partner.LegalAdress;
+        this.PhoneNumber = partner.PhoneNumber;
+        this.Email = partner.Email;
+        this.IdPartnerTypeNavigation = partner.IdPartnerTypeNavigation;
+        this.Rating = partner.Rating;
+        this.IdPartnerType = partner.IdPartnerType;
+    }
+
     public short Id { get; set; }
 
     public short IdPartnerType { get; set; }

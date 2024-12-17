@@ -24,12 +24,13 @@
 		/// </summary>
 		private void InitializeComponent() {
 			panelRight = new Panel();
+			buttonDelete = new Button();
 			dataGridViewPartnerTypes = new DataGridView();
 			panelTop = new Panel();
 			buttonSave = new Button();
 			panelFill = new Panel();
 			dataGridViewPartner = new DataGridView();
-			buttonDelete = new Button();
+			buttonReset = new Button();
 			panelRight.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)dataGridViewPartnerTypes).BeginInit();
 			panelTop.SuspendLayout();
@@ -48,6 +49,17 @@
 			panelRight.Size = new Size(228, 250);
 			panelRight.TabIndex = 0;
 			// 
+			// buttonDelete
+			// 
+			buttonDelete.Dock = DockStyle.Bottom;
+			buttonDelete.Location = new Point(6, 205);
+			buttonDelete.Name = "buttonDelete";
+			buttonDelete.Size = new Size(216, 39);
+			buttonDelete.TabIndex = 1;
+			buttonDelete.Text = "Удалить";
+			buttonDelete.UseVisualStyleBackColor = true;
+			buttonDelete.Click += buttonDelete_Click;
+			// 
 			// dataGridViewPartnerTypes
 			// 
 			dataGridViewPartnerTypes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -59,6 +71,7 @@
 			// 
 			// panelTop
 			// 
+			panelTop.Controls.Add(buttonReset);
 			panelTop.Controls.Add(buttonSave);
 			panelTop.Dock = DockStyle.Top;
 			panelTop.Location = new Point(0, 0);
@@ -69,11 +82,11 @@
 			// 
 			// buttonSave
 			// 
-			buttonSave.Dock = DockStyle.Fill;
-			buttonSave.Location = new Point(6, 6);
+			buttonSave.Dock = DockStyle.Right;
+			buttonSave.Location = new Point(143, 6);
 			buttonSave.Name = "buttonSave";
 			buttonSave.Padding = new Padding(6);
-			buttonSave.Size = new Size(517, 42);
+			buttonSave.Size = new Size(380, 42);
 			buttonSave.TabIndex = 0;
 			buttonSave.Text = "Сохранить";
 			buttonSave.UseVisualStyleBackColor = true;
@@ -97,19 +110,20 @@
 			dataGridViewPartner.Dock = DockStyle.Fill;
 			dataGridViewPartner.Location = new Point(6, 6);
 			dataGridViewPartner.Name = "dataGridViewPartner";
+			dataGridViewPartner.RowTemplate.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 			dataGridViewPartner.Size = new Size(517, 184);
 			dataGridViewPartner.TabIndex = 0;
 			// 
-			// buttonDelete
+			// buttonReset
 			// 
-			buttonDelete.Dock = DockStyle.Bottom;
-			buttonDelete.Location = new Point(6, 205);
-			buttonDelete.Name = "buttonDelete";
-			buttonDelete.Size = new Size(216, 39);
-			buttonDelete.TabIndex = 1;
-			buttonDelete.Text = "Удалить";
-			buttonDelete.UseVisualStyleBackColor = true;
-			buttonDelete.Click += buttonDelete_Click;
+			buttonReset.Dock = DockStyle.Left;
+			buttonReset.Location = new Point(6, 6);
+			buttonReset.Name = "buttonReset";
+			buttonReset.Size = new Size(131, 42);
+			buttonReset.TabIndex = 1;
+			buttonReset.Text = "Отмена";
+			buttonReset.UseVisualStyleBackColor = true;
+			buttonReset.Click += buttonReset_Click;
 			// 
 			// FormEditPartner
 			// 
@@ -134,9 +148,11 @@
 		private Panel panelRight;
 		private DataGridView dataGridViewPartnerTypes;
 		private Panel panelTop;
-		private Button buttonSave;
 		private Panel panelFill;
 		private DataGridView dataGridViewPartner;
 		private Button buttonDelete;
+		private Button buttonSave;
+		private Button buttonReset;
+		private Button button1;
 	}
 }

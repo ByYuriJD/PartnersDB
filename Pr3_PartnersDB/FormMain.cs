@@ -33,22 +33,24 @@ namespace PartnersDB {
 		protected void UpdatePanel(Point position) {
 			FlowPanel.Controls.Clear();
 
-
-			List<String> partnerTypes = new List<String>();
-			foreach (PartnerType partnerType in this.db.PartnerTypes) {
-				partnerTypes.Add(partnerType.TypeOfPartner);
-			}
-			foreach (Partner partner in this.db.Partners) {
-				partnerPanel partnerPanel = new partnerPanel(partner, partnerTypes.ToArray(), this);
-				FlowPanel.Controls.Add(partnerPanel);
-			}
-
 			Button buttonNew = new Button();
 			buttonNew.Text = "Добавить партнёра";
 			buttonNew.Click += ButtonNew_Click;
 			buttonNew.Dock = DockStyle.Bottom;
 			buttonNew.Height = 40;
 			FlowPanel.Controls.Add(buttonNew);
+
+			Dictionary<int, String> partnerTypes = new Dictionary<int, string>();
+			foreach (PartnerType partnerType in this.db.PartnerTypes) {
+				partnerTypes.Add(partnerType.Id, partnerType.TypeOfPartner);
+			}
+
+
+			foreach (Partner partner in this.db.Partners) {
+				partnerPanel partnerPanel = new partnerPanel(partner,partnerTypes, this);
+				FlowPanel.Controls.Add(partnerPanel);
+			}
+
 
 			FlowPanel.Height = FlowPanel.Height + 30;
 			FlowPanel.AutoScrollPosition = position;
